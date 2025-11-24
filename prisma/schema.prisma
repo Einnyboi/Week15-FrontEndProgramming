@@ -1,0 +1,19 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Model untuk menyimpan data gambar bulan (Syarat Tugas No. 3b)
+model MoonCapture {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  imageUrl    String?  // Opsional jika belum ada upload gambar
+  createdAt   DateTime @default(now())
+}
